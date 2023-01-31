@@ -20,7 +20,10 @@ def _fail():  # Debug code should never be called.
     raise Exception('Logic error')
 
 
+bytes_read = 0
 def _read_except(fp, n):
+
+    global bytes_read
     if n == 0:
         return b""
 
@@ -35,6 +38,7 @@ def _read_except(fp, n):
 
         data += chunk
 
+    bytes_read += n
     return data
 
 def _re0(s, fp, n):
@@ -227,4 +231,6 @@ def load(fp, options):
 def loads(s, options):
     if not isinstance(s, (bytes, bytearray)):
         raise TypeError("packed data must be type 'bytes' or 'bytearray'")
-    return load(io.BytesIO(s), options)
+    global bytes_read
+    bytes_read = 0
+    return load(io.BytesIO(s), options), bytes_read
