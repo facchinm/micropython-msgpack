@@ -18,6 +18,10 @@ from uasyncio import Event
 
 evt_resp = Event()
 
+# To create a callable RPC function, simply declare it
+#def led_color(args):
+#	return 88
+
 def receiver(ThreadName):
 	global response_obj
 	global request_obj
@@ -30,8 +34,19 @@ def receiver(ThreadName):
 					response_obj = obj
 				if obj[0] is REQUEST:
 					request_obj = obj
+					print(request_obj)
+					msg_id = request_obj[1]
+					req_result = eval(request_obj[2] + "(" + str(request_obj[3]) + ")")
+					print(req_result)
+					message = umsgpack.dumps([RESPONSE, msg_id, None, req_result])
+					machine.RPC().write(message)
 				res = res[i:]
-			except:
+			except NameError as error:
+				print(error)
+				#message = umsgpack.dumps([RESPONSE, msg_id, str(error), None])
+				#machine.RPC().write(message)
+				res = res[i:]
+			else:
 				pass
 
 def _rpc_call(_class_name, _function_name, args):
