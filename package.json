@@ -1,0 +1,16 @@
+{
+  "urls": [
+    ["umsgpack/__init__.py", "github:facchinm/micropython-msgpack/umsgpack/__init__.py"],
+    ["umsgpack/mp_dump.py", "github:facchinm/micropython-msgpack/umsgpack/mp_dump.py"],
+    ["umsgpack/mp_load.py", "github:facchinm/micropython-msgpack/umsgpack/mp_load.py"],
+    ["umsgpack/as_load.py", "github:facchinm/micropython-msgpack/umsgpack/as_load.py"],
+    ["umsgpack/umsgpack_ext.py", "github:facchinm/micropython-msgpack/umsgpack/umsgpack_ext.py"],
+    ["arduino/arduino.py", "github:facchinm/micropython-msgpack/arduino.py"]
+  ],
+  "deps": [
+    ["collections-defaultdict", "latest"],
+    ["os-path", "latest"]
+  ],
+  "version": "0.2"
+}
+
