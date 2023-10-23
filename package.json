@@ -5,7 +5,7 @@
     ["umsgpack/mp_load.py", "github:facchinm/micropython-msgpack/umsgpack/mp_load.py"],
     ["umsgpack/as_load.py", "github:facchinm/micropython-msgpack/umsgpack/as_load.py"],
     ["umsgpack/umsgpack_ext.py", "github:facchinm/micropython-msgpack/umsgpack/umsgpack_ext.py"],
-    ["arduino/arduino.py", "github:facchinm/micropython-msgpack/arduino.py"]
+    ["arduino/rpc.py", "github:facchinm/micropython-msgpack/rpc.py"]
   ],
   "deps": [
     ["collections-defaultdict", "latest"],
